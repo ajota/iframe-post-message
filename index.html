@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-comerce</title>
+    <script>
+         window.addEventListener("message", (event) => {
+            document.getElementById('data').innerHTML = event.data + ' ' + event.origin;
+            return;
+        }, false);
+    </script>
 </head>
 <body>
     <h1>E-Commerce</h1>
-    <iframe width="500" height="300" name="visor"></iframe>
+    <iframe width="500" name="visor"></iframe>
     <script>
         var target = window.open('receptor-pasarela.html', 'visor',);
         setTimeout(() => {
@@ -16,5 +22,9 @@
             console.log("Emisor: envio mensaje");
         }, 1000);
     </script>
+
+    <p id="data">
+
+    </p>
 </body>
 </html>

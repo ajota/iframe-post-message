@@ -9,15 +9,17 @@
     <script>
         console.log('hola cargo');
         window.addEventListener("message", (event) => {
-            document.getElementById('data').innerHTML = event.data;
+            document.getElementById('data').innerHTML = event.data + ' ' + event.origin;
+            setTimeout(() => {
+                window.parent.postMessage('hola retorno', '*');    
+            }, 3000);
             return;
         }, false);
+        
     </script>
 </head>
 <body>
     <h1>Pasarela</h1>
-    <p id="data">
-
-    </p>
+    <p id="data"></p>
 </body>
 </html>
